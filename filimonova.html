@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О себе</title>
+    <style>
+      
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            background-color: #f9f5ff;
+            color: #2e1a47;
+            line-height: 1.6;
+            padding: 1.5rem;
+        }
+
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 2rem;
+            box-shadow: 0 15px 30px rgba(128, 0, 128, 0.1);
+            padding: 2rem 2rem 1.5rem;
+            border: 1px solid #e2d0ff;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding-bottom: 1.5rem;
+            border-bottom: 3px solid #b280ff;
+            margin-bottom: 2rem;
+        }
+
+        .header-text h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #5e2a8c;
+            letter-spacing: -0.5px;
+        }
+
+        .header-text p {
+            font-size: 1.2rem;
+            color: #7b4fa1;
+            font-style: italic;
+        }
+
+        .avatar {
+            border-radius: 50%;
+            border: 4px solid #c7a3ff;
+            object-fit: cover;
+            background: #ede4ff;
+            box-shadow: 0 6px 12px rgba(128, 0, 200, 0.15);
+        }
+
+        .content-wrapper {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        main {
+            flex: 2.5;
+            min-width: 280px;
+        }
+
+        aside {
+            flex: 1.3;
+            min-width: 220px;
+            background: #f3ebff;
+            padding: 1.5rem 1.4rem;
+            border-radius: 1.8rem;
+            align-self: start;
+        }
+
+        aside h3 {
+            font-size: 1.5rem;
+            color: #4d1f7a;
+            margin-bottom: 1rem;
+            border-bottom: 2px dashed #b28aff;
+            padding-bottom: 0.5rem;
+        }
+
+        aside ul {
+            list-style: none;
+        }
+
+        aside li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.8rem;
+            position: relative;
+            font-weight: 500;
+            color: #3a2153;
+        }
+
+        aside li::before {
+            content: "*";
+            position: absolute;
+            left: 0;
+            top: -2px;
+            font-size: 1.1rem;
+        }
+	.highlight-word {
+	    font-size: 1.25rem;
+	    font-weight: 700;
+	    color: #3a1a5c;
+	}
+
+        section {
+            margin-bottom: 2rem;
+            background: #fcf9ff;
+            padding: 1.4rem 1.8rem;
+            border-radius: 1.5rem;
+            border: 1px solid #ddd0ff;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #5b2b8c;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        h2::before {
+            content: "◆";
+            color: #a36eff;
+            font-size: 1.5rem;
+        }
+
+        ul.skills-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem 1.5rem;
+        }
+
+        ul.skills-list li {
+            background: #e8dbff;
+            padding: 0.5rem 1.2rem 0.5rem 2.2rem;
+            border-radius: 30px;
+            position: relative;
+            font-weight: 500;
+            color: #311b4a;
+            box-shadow: 0 2px 5px rgba(160, 100, 255, 0.1);
+        }
+
+        ul.skills-list li::before {
+            content: "✧";
+            position: absolute;
+            left: 0.8rem;
+            color: #8a4dff;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        ol.projects-list {
+            padding-left: 1rem;
+            counter-reset: project-counter;
+            list-style: none;
+	}
+
+	ol.projects-list li {
+    	    counter-increment: project-counter;
+    	    margin-bottom: 1rem;
+    	    font-size: 1.1rem;
+    	    position: relative;
+    	    font-weight: 500;
+    	    color: #2c193f;
+	    padding-left: 1.5rem;
+ 	        
+	}
+
+	ol.projects-list li::before {
+    	    content: counter(project-counter) ".";
+    	    font-weight: 700;
+    	    color: #7a3ec9;
+	    padding: 0.1rem 0.6rem;
+    	    border-radius: 12px;
+    	    font-size: 0.95rem;
+    	    margin-right: 0.6rem;
+    	    margin-left: -1.8rem;
+        }
+
+        .feedback-form {
+            background: #f1e8ff;
+            padding: 1.8rem;
+            border-radius: 2rem;
+            margin: 1rem 0 1.8rem;
+            border: 1px solid #cdb5ff;
+        }
+
+        .feedback-form h2 {
+            margin-top: 0;
+        }
+
+        .form-group {
+            margin-bottom: 1.3rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: 600;
+            color: #4b2b6b;
+            margin-bottom: 0.4rem;
+            font-size: 0.98rem;
+            letter-spacing: 0.3px;
+        }
+
+        input, textarea {
+            padding: 0.85rem 1rem;
+            border: 2px solid #d9c2ff;
+            border-radius: 16px;
+            font-size: 1rem;
+            background: white;
+            transition: 0.2s;
+            font-family: inherit;
+            color: #2e1a47;
+        }
+
+	input:focus, textarea:focus {
+    	    outline: none;
+    	    border-color: #9f6eff;
+	}	
+
+        textarea {
+            resize: none;
+            min-height: 150px;
+        }
+
+        .btn-submit {
+            background: #7d3fd6;
+            color: white;
+            border: none;
+            padding: 0.9rem 2.4rem;
+            border-radius: 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 8px 18px rgba(128, 0, 200, 0.25);
+            letter-spacing: 0.5px;
+            align-self: flex-start;
+            border: 1px solid #a479ff;
+        }
+
+
+        footer {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            text-align: center;
+            border-top: 2px solid #d4bbff;
+            font-size: 1rem;
+            color: #5c3b7a;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .footer-copy {
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <header>
+            <img src="https://i.pinimg.com/originals/37/66/dc/3766dcf4ce502d269ee580a7ea2423c2.png?nii=t"
+		 alt="Аватар Ксении Филимоновой"
+                 width="150"
+                 height="150"
+                 class="avatar">
+            <div class="header-text">
+                <h1>Филимонова Ксения</h1>
+                <p>искусство и креатив</p>
+            </div>
+        </header>
+
+        <div class="content-wrapper">
+            <main>
+                <section>
+                    <h2>Навыки</h2>
+                    <ul class="skills-list">
+                        <li>Композиция</li>
+                        <li>Скетчинг</li>
+                        <li>Колористика</li>
+                        <li>Коллаж и микс-медиа</li>
+                        <li>Каллиграфия</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Проекты</h2>
+                    <ol class="projects-list">
+                        <li>Коллекция «Проклятье домашних Гран-при» — зарисовки моментов, разбивающих сердца</li>
+                        <li>Персональный проект «Хрупкое равновесие» — серия работ, показывающая шаткую ходьбу по лезвию ножа</li>
+                        <li>Дизайн «Спасибо, Зандворт» — проект в стилистике делфтского фарфора</li>
+                        
+                    </ol>
+                </section>
+
+                <section class="feedback-form">
+                    <h2>Обратная связь</h2>
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label for="name">Имя</label>
+                            <input type="text" id="name" name="name" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Сообщение</label>
+                            <textarea id="message" name="message" placeholder="Напишите о вашей идее или проекте..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Отправить</button>
+                    </form>
+                </section>
+            </main>
+
+            <aside>
+    		<h3>Любимое направление</h3>
+    		<p><span class="highlight-word">Скетчинг</span> — техника быстрого рисования, когда делают наброски, чтобы зафиксировать идею, объект или сцену без детальной проработки.</p>
+	    </aside>
+        </div>
+
+        <footer>
+            <span class="footer-copy">© Филимонова Ксения 2026</span>
+        </footer>
+    </div>
+</body>
+</html>
